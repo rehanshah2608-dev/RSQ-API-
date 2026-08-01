@@ -16,21 +16,23 @@ app.use(cors());
 
 // Rate Limiter
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-  message: {
-    success: false,
-    message: "Too many requests. Please try again later."
-  }
-});
+	  windowMs: 15 * 60 * 1000,
+	    max: 100,
+	      message: {
+	      	    success: false,
+	      	        message: "Too many requests. Please try again later."
+	      	          }
+	      	          });
 
-app.use(limiter);
+	      	          app.use(limiter);
 
-// Middleware
-app.use(express.json());
-app.use(logger);
+	      	          // Middleware
+	      	          app.use(express.json());
+	      	          app.use(logger);
 
-// Routes
-app.use("/", apiRoutes);
+	      	          // Routes
+	      	          app.use("/", apiRoutes);
 
-module.exports = app;
+	      	          module.exports = app;
+	      }
+})
